@@ -39,9 +39,9 @@ public class LoginService {
         try{
             Authentication authentication = authMan.authenticate(new UsernamePasswordAuthenticationToken(credentials.getUsername(),credentials.getPassword()));
             if(authentication.isAuthenticated()){
-
+                LoginModel data = repo.findByUsername(credentials.getUsername());
                 res.setLoginMessage("Successfull login");
-                res.setToken(token.generateToken(credentials.getUsername()));
+                res.setToken(token.generateToken(credentials.getUsername(), data.getId()));
                 return ResponseEntity.status(HttpStatus.ACCEPTED).body(res);
             }
         }

@@ -1,0 +1,25 @@
+package org.backend.promptservice.Controller;
+
+
+import org.backend.promptservice.Models.PromptModel;
+import org.backend.promptservice.MongoRepo.PromptRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+public class PromptController {
+
+    @Autowired
+    PromptRepo repo;
+
+    @GetMapping("/data")
+    public List<PromptModel> hel(){
+        return repo.findAll();
+    }
+
+}

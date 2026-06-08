@@ -36,8 +36,7 @@ public class ConfigSecurity{
     @Autowired
     UserDetailsService userDetailService;
 
-    @Autowired
-    JWTFilter jwtFilter;
+
 
 
     @Bean
@@ -45,9 +44,7 @@ public class ConfigSecurity{
         http.csrf(csrf->csrf.disable()).formLogin(form->form.disable()).httpBasic(basic->basic.disable()).authorizeHttpRequests(request->request.requestMatchers("/login","/signup").permitAll().anyRequest().authenticated())
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(
-                                SessionCreationPolicy.STATELESS))
-                .addFilterBefore(jwtFilter,
-                        UsernamePasswordAuthenticationFilter.class);;
+                                SessionCreationPolicy.STATELESS));
         return  http.build();
     }
 
