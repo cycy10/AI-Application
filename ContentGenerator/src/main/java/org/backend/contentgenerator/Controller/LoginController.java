@@ -4,6 +4,7 @@ package org.backend.contentgenerator.Controller;
 import org.backend.contentgenerator.Dto.LoginDto;
 import org.backend.contentgenerator.Dto.LoginResponse;
 import org.backend.contentgenerator.Service.LoginService;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
